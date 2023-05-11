@@ -1,0 +1,173 @@
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exmple</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+   
+</head>
+
+<body  style=" display: flex;
+      justify-content: center;
+      align-items: center;
+     " > 
+    <div>
+        <form action="submit.php" method="post">
+    <header>
+        <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/334260096_945923373420758_8512020298107495803_n.png?_nc_cat=101&ccb=1-7&_nc_sid=aee45a&_nc_ohc=DnQ4Y9N8ta0AX9ttAN6&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdQVYhjEdRqEJGllPerLWbLjUSCeSOP2Kcfc7uZtDWZ28w&oe=6482C92B" alt="Logo" style="width: 100; height: auto;" >
+
+
+        <h1>Notification Management</h1>
+        <div>
+            <span class="clickable-text">learn more about how to control who gets what alerts,here </span>
+            <style>
+                .clickable-text {
+                    display: inline-block;
+                    padding: 10px;
+                    background-color: #bfe1f6;
+                    cursor: pointer;
+                }
+            </style>
+            <style>
+                h2 {
+                  color: brown;
+                  text-decoration: underline;
+                }
+              </style>
+        </div>
+       
+        
+       
+        
+    </header>
+    <main>
+        <!--section 1 destination-->
+    <div>
+        <h2>Destination</h2>
+        <div>
+            <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search..." style=" border: 2px solid black;
+            outline: none;   ">
+            <datalist id="datalistOptions">
+              <option value="San Francisco">
+              <option value="New York">
+              <option value="Seattle">
+              <option value="Los Angeles">
+              <option value="Chicago">
+            </datalist>
+            
+        </div>
+
+       
+    </div>
+    <!-- DROPDOWN
+
+   
+    <div class="input-group mb-3">
+        <label for="exampleDataList" class="form-label">Destination with dropdown</label>
+        <input type="text" class="form-control" aria-label="Text input with dropdown button">
+        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Separated link</a></li>
+        </ul>
+      </div>
+     -->
+     <!--section 2 msg-->
+        <div class="container">
+            <h2>message</h2>
+            
+            <div class="form-group">
+                <textarea class="form-control" rows="5" id="comment" style=" border: 2px solid black;
+                outline: none; " ></textarea>
+              </div>
+            
+        </div>
+        <!--section 3 text on click-->
+        <style>
+            .list-group-item {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+        </style>
+       
+        
+        <div>
+            <h2>title</h2>
+            <div class="input-group mb-3">
+                <input type="text" id="searchInput" placeholder="Search..." class="form-control" style=" border: 2px solid black;
+                outline: none; " >
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button" onclick="addToList()">Add</button>
+                </div>
+            </div>
+        </div>
+        
+        <div>
+            <h6 style="text-decoration: underline;" >Click the text to paste it into the search input:</h6>
+            <div class="container">
+                <ul class="list-group" id="itemList">
+                    <li class="list-group-item" onclick="pasteTextToSearch('An item')" onmouseover="this.style.backgroundColor='#bfe1f6'" onmouseout="this.style.backgroundColor='transparent'">
+                        An item
+                        <button class="btn btn-danger btn-sm" onclick="deleteItem(event)">Delete</button>
+                    </li>
+                    <li class="list-group-item" onclick="pasteTextToSearch('A second item')" onmouseover="this.style.backgroundColor='#bfe1f6'" onmouseout="this.style.backgroundColor='transparent'">
+                        A second item
+                        <button class="btn btn-danger btn-sm" onclick="deleteItem(event)">Delete</button>
+                    </li>
+                    <li class="list-group-item" onclick="pasteTextToSearch('A third item')" onmouseover="this.style.backgroundColor='#bfe1f6'" onmouseout="this.style.backgroundColor='transparent'">
+                        A third item
+                        <button class="btn btn-danger btn-sm" onclick="deleteItem(event)">Delete</button>
+                    </li>
+                </ul>
+                <style>
+                    .list-group-item {
+                      width: 50%;
+                      
+                    }
+                  </style>
+            </div>
+        </div>
+        
+        <script>
+            function pasteTextToSearch(text) {
+                document.getElementById("searchInput").value = text;
+            }
+        
+            function deleteItem(event) {
+                var item = event.target.parentNode;
+                item.parentNode.removeChild(item);
+            }
+        
+            function addToList() {
+                var input = document.getElementById("searchInput").value;
+                if (input.trim() !== "") {
+                    var list = document.getElementById("itemList");
+                    var newItem = document.createElement("li");
+                    newItem.classList.add("list-group-item");
+                    newItem.textContent = input;
+        
+                    var deleteButton = document.createElement("button");
+                    deleteButton.textContent = "Delete";
+                    deleteButton.classList.add("btn", "btn-danger", "btn-sm");
+                    deleteButton.onclick = deleteItem;
+        
+                    newItem.appendChild(deleteButton);
+                    list.appendChild(newItem);
+                    document.getElementById("searchInput").value = "";
+                }
+            }
+        </script>
+        
+        
+
+    </main>
+   <h3 style=" padding: 10px;
+   background-color: #bfe1f6;">you can now submit here : <button type="submit">Submit</button></h3>
+</form>
+</div>
+</body>
+</html>
